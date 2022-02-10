@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name="Doctor")
 public class Doctor {
 
     @Id
@@ -17,7 +18,15 @@ public class Doctor {
     private String password;
     private String city;
     private String speciality;
-    private int rate;
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public Doctor(){
 
@@ -53,14 +62,6 @@ public class Doctor {
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
     }
 
     public int getId() {

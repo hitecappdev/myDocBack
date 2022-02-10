@@ -1,13 +1,13 @@
 package hitec.appdev.myDoc.Model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name="Patient")
 public class Patient {
 
     @Id
@@ -19,10 +19,53 @@ public class Patient {
     private String phone;
     private String password;
     private String city;
-    private int rate;
+    private String gender;
+    private String height;
+    private String weight;
+    private String age;
+    private boolean diabetic = false ;
 
     public  Patient (){
+    }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public boolean isDiabetic() {
+        return diabetic;
+    }
+
+    public void setDiabetic(boolean diabetic) {
+        this.diabetic = diabetic;
     }
 
     public int getId() {
@@ -71,14 +114,6 @@ public class Patient {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
     }
 
     public boolean equals(Patient o) {

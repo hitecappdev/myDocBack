@@ -18,9 +18,9 @@ public class PatientServiceImp implements PatientService{
 
     @Override
     public Patient savePatient(Patient patient) {
-        Optional<Patient> doc = patientRepository.findPatientByEmail(patient.getEmail());
+        Patient doc = patientRepository.findPatientByEmail(patient.getEmail());
 
-        if(doc.isPresent()){
+        if(doc != null){
             throw  new IllegalStateException("This address e-mail already exist !");
         }
 
@@ -30,5 +30,17 @@ public class PatientServiceImp implements PatientService{
     @Override
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
+    }
+
+    @Override
+    public Patient getPatient(String email) {
+        return patientRepository.findPatientByEmail(email);
+    }
+
+    @Override
+    public void EditPatient(String email,String gender,String height,String weight, boolean diabetic) {
+
+       patientRepository.EditPatient(gender,height,weight,diabetic,email);
+
     }
 }
